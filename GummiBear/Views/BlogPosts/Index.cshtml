@@ -1,9 +1,24 @@
-﻿
+﻿@model IEnumerable<GummiBear.Models.BlogPost>
+
 @{
     ViewData["Title"] = "Blog Posts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hi this is the blog posts page</h2>
-<hr/>
-@Html.ActionLink("Create new post", "Create");
+<h2>Gummi Bear Kingdom Blog</h2>
+<hr />
+<div class="options">
+    @Html.ActionLink("Create new post", "Create", null, null, new { @class = "option-item" })
+</div>
+
+
+
+@foreach (var post in Model)
+{
+    <div class="blog-post">
+        <h3>@Html.DisplayFor(modelPost => post.Title)</h3>
+        <h4>By @Html.DisplayFor(modelPost => post.Author)</h4>
+        <p>@Html.DisplayFor(modelPost => post.TextBody)</p>
+    </div>
+}
+

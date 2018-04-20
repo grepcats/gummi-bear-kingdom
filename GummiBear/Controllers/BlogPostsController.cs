@@ -16,7 +16,8 @@ namespace GummiBear.Controllers
         private GummiBearContext db = new GummiBearContext();
         public IActionResult Index()
         {
-            return View();
+            List<BlogPost> model = db.BlogPosts.ToList();
+            return View(model);
         }
 
         public IActionResult Create()
