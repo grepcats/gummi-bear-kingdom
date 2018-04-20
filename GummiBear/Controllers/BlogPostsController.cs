@@ -16,7 +16,7 @@ namespace GummiBear.Controllers
         private GummiBearContext db = new GummiBearContext();
         public IActionResult Index()
         {
-            List<BlogPost> model = db.BlogPosts.ToList();
+            List<BlogPost> model = db.BlogPosts.OrderByDescending(b => b.PostDate).ToList();
             return View(model);
         }
 
