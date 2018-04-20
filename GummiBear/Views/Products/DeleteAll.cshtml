@@ -1,0 +1,14 @@
+﻿@model GummiBear.Models.Product
+
+@{
+    ViewData["Title"] = "Product - Delete All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Are you sure you want to delete all Products?</h2>
+<hr />
+@using (Html.BeginForm())
+{
+<button class="btn btn-danger" type="submit" value="DeleteAll">Hello</button>
+}
+<p>@Html.ActionLink("Back to Products", "Index")</p>

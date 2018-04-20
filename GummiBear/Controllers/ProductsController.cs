@@ -69,5 +69,17 @@ namespace GummiBear.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult DeleteAll()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName("DeleteAll")]
+        public IActionResult DeleteAllProducts()
+        {
+            db.Database.ExecuteSqlCommand("DELETE FROM Products;");
+            return RedirectToAction("Index");
+        }
+
     }
 }
