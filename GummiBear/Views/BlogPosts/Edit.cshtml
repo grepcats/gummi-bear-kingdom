@@ -1,0 +1,32 @@
+﻿@model GummiBear.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Blog Post - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit This Blog Post: @Html.DisplayFor(model => model.Title)</h2>
+<hr />
+@using (Html.BeginForm())
+{
+@Html.HiddenFor(model => model.BlogPostId)
+<div class="form-group">
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Author)
+    @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.TextBody)
+    @Html.TextAreaFor(x => x.TextBody, new { @class = "form-control" })
+</div>
+
+<input type="submit" value="Save" class="btn btn-default" />
+
+}
+
+<div class="page-nav">
+    @Html.ActionLink("Back to Blog", "Index")
+</div>

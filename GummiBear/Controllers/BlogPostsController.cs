@@ -34,7 +34,6 @@ namespace GummiBear.Controllers
             return RedirectToAction("Index");
         }
 
-
         public IActionResult Delete(int id)
         {
             var thisPost = db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
@@ -46,6 +45,20 @@ namespace GummiBear.Controllers
         {
             var thisPost = db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
             db.BlogPosts.Remove(thisPost);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisPost = db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            return View(thisPost);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(BlogPost blogPost)
+        {
+            db.Entry(blogPost).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
