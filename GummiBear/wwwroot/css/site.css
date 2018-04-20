@@ -17,16 +17,22 @@ textarea {
     max-width: 280px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.navbar {
+    background-color: #EB9486;
+    border-color: #EB9486;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.navbar-brand {
+    color: #1C3144 !important;
 }
+
+a {
+    color: #1C3144 !important;
+}
+
+    a:hover {
+        color: #7E7F9A !important;
+    }
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
@@ -35,3 +41,5 @@ textarea {
         display: none;
     }
 }
+
+
