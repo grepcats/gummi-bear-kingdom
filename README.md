@@ -44,6 +44,11 @@ A note about dummy data - this app will generate 3 dummy data objects and add th
 	* Input: User clicks "edit" on a post
 	* Output: User is taken to a form where they can edit the Title, Author, and TextBody of the post
 
+## Future Features
+* User will be able to post a review for a product
+* User will be able to rate products
+* Landing page will show top 3 products
+
 
 ## Technologies Used
 * Bootstrap
