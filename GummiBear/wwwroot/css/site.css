@@ -20,6 +20,18 @@ textarea {
     max-width: 280px;
 }*/
 
+.action {
+    margin: 0px 10px 0px 10px;
+}
+
+th {
+    text-align:center;
+}
+
+.center {
+    text-align:center;
+}
+
 .navbar {
     background-color: #EB9486;
     border-color: #EB9486;

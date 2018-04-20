@@ -5,10 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Are you sure you want to delete all Products?</h2>
+<h2>Are you sure you want to delete all products?</h2>
 <hr />
-@using (Html.BeginForm())
-{
-<button class="btn btn-danger" type="submit" value="DeleteAll">Hello</button>
-}
-<p>@Html.ActionLink("Back to Products", "Index")</p>
+<div class="delete-justify">
+    @using (Html.BeginForm())
+    {
+        <button class="btn danger-button btn-lg" type="submit" value="DeleteAll">Confirm Delete All Products</button>
+    }
+    </div>
+<div class="page-nav">
+    @Html.ActionLink("Back to Products", "Index")
+</div>
