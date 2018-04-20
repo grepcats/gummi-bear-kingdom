@@ -22,7 +22,8 @@
             <td>@Html.DisplayFor(modelProduct => product.Cost)</td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = product.ProductId }) |
-                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId }) | Delete
+                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = product.ProductId })
             </td>
         </tr>
 
