@@ -1,21 +1,24 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: lightgray;
 }
+
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: white;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
+/* Set widths on the form inputs since otherwise they're 100% wide 
 input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .navbar {
     background-color: #EB9486;
@@ -33,6 +36,22 @@ a {
     a:hover {
         color: #7E7F9A !important;
     }
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.options {
+    display:flex;
+    justify-content: center;
+}
+
+.option-item {
+    margin: 0px 20px 20px 20px;
+    font-size: 1.5em;
+}
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {

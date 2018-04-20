@@ -6,8 +6,12 @@
 
 <h2>Products offered by Gummi Bear Kingdom</h2>
 <hr />
+<div class="options">
+    @Html.ActionLink("Create new Product", "Create", null, null, new { @class = "option-item" } ) |
+    @Html.ActionLink("Delete all Products", "DeleteAll", null, null, new { @class = "option-item" })
+</div>
 
-<table class="table">
+<table class="table table-bordered table-hover table-responsive">
     <tr>
         <th>@Html.DisplayNameFor(model => model.Name)</th>
         <th>@Html.DisplayNameFor(model => model.Description)</th>
@@ -21,14 +25,13 @@
             <td>@Html.DisplayFor(modelProduct => product.Description)</td>
             <td>@Html.DisplayFor(modelProduct => product.Cost)</td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = product.ProductId }) |
-                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = product.ProductId })
+                <a href=@Url.Action("Details", "Products", new { id = product.ProductId })><span class="glyphicon glyphicon-th-list" aria-label="details for product"></span></a> |
+                <a href=@Url.Action("Edit", "Products",  new { id = product.ProductId })><span class="glyphicon glyphicon-pencil" aria-label="edit product"></span></a> |
+                <a href=@Url.Action("Delete", "Products", new { id = product.ProductId })><span class="glyphicon glyphicon-remove" aria-label="delete product"></span></a>
             </td>
         </tr>
 
     }
 </table>
-@Html.ActionLink("Create new Product", "Create")
-<hr/>
-@Html.ActionLink("Delete all Products", "DeleteAll")
+
+<hr />
