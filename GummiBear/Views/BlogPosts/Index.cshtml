@@ -15,11 +15,12 @@
 
 @foreach (var post in Model)
 {
-    <div class="blog-post">
-        <h3>@Html.DisplayFor(modelPost => post.Title)</h3>
-        <h4>By @Html.DisplayFor(modelPost => post.Author)</h4>
-        <p>Posted on @post.PostDate</p>
-        <p class="text-body">@Html.DisplayFor(modelPost => post.TextBody)</p>
-    </div>
+<div class="blog-post">
+    <h3>@Html.DisplayFor(modelPost => post.Title)</h3>
+    <h4>By @Html.DisplayFor(modelPost => post.Author)</h4>
+    <p>Posted on @post.PostDate</p>
+    <p class="text-body">@Html.DisplayFor(modelPost => post.TextBody)</p>
+    <a class="action" href=@Url.Action("Delete", "BlogPosts", new { id = post.BlogPostId })><span class="glyphicon glyphicon-remove" aria-label="delete blog post"></span></a>
+</div>
 }
 

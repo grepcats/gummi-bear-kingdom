@@ -33,5 +33,21 @@ namespace GummiBear.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public IActionResult Delete(int id)
+        {
+            var thisPost = db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            return View(thisPost);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisPost = db.BlogPosts.FirstOrDefault(BlogPosts => BlogPosts.BlogPostId == id);
+            db.BlogPosts.Remove(thisPost);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
