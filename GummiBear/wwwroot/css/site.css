@@ -23,6 +23,7 @@ textarea {
 .navbar {
     background-color: #EB9486;
     border-color: #EB9486;
+    font-family: 'Maven Pro', sans-serif;
 }
 
 .navbar-brand {
@@ -65,6 +66,28 @@ h2 {
     margin-top: 30px;
     font-size: 1.25em;
     font-weight: bold;
+}
+
+.danger-button {
+    background-color: #7E7F9A;
+    color: #F9F8F8;
+    display:flex;
+}
+
+    .danger-button:hover {
+        background-color: #A5A6C9;
+        color: #F9F8F8;
+    }
+
+.delete-justify {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.special {
+    font-size: 2em;
 }
 
 /* Hide/rearrange for smaller screens */
