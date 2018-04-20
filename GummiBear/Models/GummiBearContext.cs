@@ -10,6 +10,7 @@ namespace GummiBear.Models
     {
         public GummiBearContext()
         {
+           
         }
 
         public DbSet<Product> Products { get; set; }
