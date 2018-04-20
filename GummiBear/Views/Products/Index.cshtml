@@ -5,3 +5,24 @@
 }
 
 <h2>Products offered by Gummi Bear Kingdom</h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Description)</th>
+        <th>@Html.DisplayNameFor(model => model.Cost)</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelProduct => product.Name)</td>
+            <td>@Html.DisplayFor(modelProduct => product.Description)</td>
+            <td>@Html.DisplayFor(modelProduct => product.Cost)</td>
+            <td>Details | Edit | Delete</td>
+        </tr>
+
+    }
+</table>
+@Html.ActionLink("Create new Product", "Create")
