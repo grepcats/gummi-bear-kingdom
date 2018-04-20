@@ -7,6 +7,8 @@
 # Description
 This website currently allows users to add new products to Gummi Bear Kingdom's inventory. Users may create, edit, and delete products, as well as delete all products. In the future, they will be able to add blog posts as well.
 
+A note about dummy data - this app will generate 3 dummy data objects and add them to the database when the user arrives to the home page and has no objects in their database. If the user navigates to the home page after having deleted all their objects, these 3 objects will be added back to the database.
+
 ## Specs
 * Program should have a landing page from where user can go see products
 	* Input: User arrives on the home page

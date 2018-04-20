@@ -12,7 +12,7 @@ namespace GummiBear.Controllers
         private GummiBearContext db = new GummiBearContext();
         public IActionResult Index()
         {
-            if (!db.Products.Any(product => product.Name == "Code Complete by Steve McConnell") && db.Products.Count() == 0)
+            if (db.Products.Count() == 0)
             {
                 List<Product> dummyData = new List<Product> { new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming, Steve McConnell’s original CODE COMPLETE has been helping developers write better software for more than a decade. Now this classic book has been fully updated and revised with leading-edge practices—and hundreds of new code samples—illustrating the art and science of software construction. ", (decimal)29.97),
                 new Product("Clean Code by Robert C Martin", "Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn’t have to be that way", (decimal)34.00),
