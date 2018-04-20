@@ -10,6 +10,7 @@
 @using (Html.BeginForm())
 {
 @Html.HiddenFor(model => model.BlogPostId)
+@Html.HiddenFor(model => model.PostDate)
 <div class="form-group">
     @Html.LabelFor(model => model.Title)
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
