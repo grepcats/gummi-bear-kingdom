@@ -31,6 +31,18 @@ A note about dummy data - this app will generate 3 dummy data objects and add th
 * An admin should be able to remove all products
 	* Input: Admin clicks "delete all products"
 	* Output: User is first presented with a confirmation page, and then the option to follow through with deleting all products.
+* User should be able to create a blog post with title, author, and textbody
+	* Input: Title, Author, and textbody
+	* Output: A new blog post should be created with a DateTime stamp.
+* Program should list all blog posts
+	* Input: User arrives on blog post page
+	* Output: A list of posts
+* Admin should be able to delete a blog post
+	* Input: Admin clicks delete on a post
+	* Output: User is first presented with a confirmation page, and then the option to delete post
+* An admin should be able to edit a blog post
+	* Input: User clicks "edit" on a post
+	* Output: User is taken to a form where they can edit the Title, Author, and TextBody of the post
 
 
 ## Technologies Used
@@ -95,3 +107,4 @@ SOFTWARE.
 ## Additional Notes
 Color scheme generated with https://coolors.co/
 Scheme: https://coolors.co/1c3144-f3de8a-eb9486-a5a6c9-f9f8f8
+Lorem Ipsum on Home page courtesy of http://www.bobrosslipsum.com/
