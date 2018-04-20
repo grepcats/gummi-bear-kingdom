@@ -20,7 +20,10 @@
             <td>@Html.DisplayFor(modelProduct => product.Name)</td>
             <td>@Html.DisplayFor(modelProduct => product.Description)</td>
             <td>@Html.DisplayFor(modelProduct => product.Cost)</td>
-            <td>@Html.ActionLink("Details", "Details", new { id = product.ProductId }) | Edit | Delete</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = product.ProductId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = product.ProductId }) | Delete
+            </td>
         </tr>
 
     }
