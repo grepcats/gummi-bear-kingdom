@@ -53,6 +53,20 @@ h2 {
     font-size: 1.5em;
 }
 
+.option-item:hover {
+    text-decoration: none;
+}
+
+.pipe {
+    font-size: 1.5em;
+}
+
+.page-nav {
+    margin-top: 30px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
