@@ -50,7 +50,14 @@ namespace GummiBear.Models
 
         public int AverageRating()
         {
-            return 5;
+            int start = 0;
+            foreach(Review review in Reviews)
+            {
+                start += review.Rating;
+            }
+            int average = (int)Math.Round((decimal)start / this.Reviews.Count);
+            return average;
+
         }
     }
 

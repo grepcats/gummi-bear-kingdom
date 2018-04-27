@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using GummiBear.Models;
 
 namespace GummiBear.Tests
@@ -59,6 +60,7 @@ namespace GummiBear.Tests
             Product newProduct = new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming...", (decimal)29.97);
             Review newReview1 = new Review { ReviewId = 1, Author = "Bob", ContentBody = "This product is great", Rating = 5 };
             Review newReview2 = new Review { ReviewId = 2, Author = "Frank", ContentBody = "This product is ok", Rating = 3 };
+            newProduct.Reviews = new List<Review> { newReview1, newReview2 };
 
 
             //act
