@@ -49,6 +49,8 @@ namespace GummiBear.Controllers
         public IActionResult Details(int id)
         {
             var thisProduct = productRepo.Products.FirstOrDefault(Products => Products.ProductId == id);
+           
+
             return View(thisProduct);
         }
 
@@ -94,6 +96,7 @@ namespace GummiBear.Controllers
         {
             return RedirectToAction("Create", "Reviews", new { Id = id });
         }
+
 
     }
 }

@@ -10,6 +10,11 @@ namespace GummiBear.Models
     [Table("Products")]
     public class Product
     {
+        public Product()
+        {
+            this.Reviews = new HashSet<Review>();
+        }
+
         [Key]
         public int ProductId { get; set; }
         public string Name { get; set; }
@@ -23,11 +28,6 @@ namespace GummiBear.Models
             Description = description;
             Cost = cost;
             ProductId = 0;
-        }
-
-        public Product()
-        {
-
         }
 
         public override bool Equals(object otherProduct)
