@@ -23,5 +23,22 @@ namespace GummiBear.Tests
             Assert.AreEqual("Widely considered one of the best practical guides to programming...", descriptionResult);
             Assert.AreEqual((decimal)29.97, costResult);
         }
+
+        [TestMethod]
+        public void SetProperties_SetThem_Void()
+        {
+            //Arrange
+            Product newProduct = new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming...", (decimal)29.97);
+
+            //Act
+            newProduct.Name = "This is a different name";
+            newProduct.Description = "This is a different description";
+            newProduct.Cost = (decimal)15.00;
+
+            //Assert
+            Assert.AreEqual("This is a different name", newProduct.Name);
+            Assert.AreEqual("This is a different description", newProduct.Description);
+            Assert.AreEqual((decimal)15.00, newProduct.Cost);
+        }
     }
 }
