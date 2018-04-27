@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GummiBear.Models;
+using GummiBear.Models.Repositories;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,11 +14,23 @@ namespace GummiBear.Controllers
 {
     public class ProductsController : Controller
     {
-        private GummiBearContext db = new GummiBearContext();
-        // GET: /<controller>/
+        private IProductRepository productRepo;
+
+        public ProductsController(IProductRepository repo = null)
+        {
+            if (repo == null)
+            {
+                this.productRepo = new EFProductRepository();
+            }
+            else
+            {
+                this.productRepo = repo;
+            }
+        }
+      
         public IActionResult Index()
         {
-            List<Product> model = db.Products.ToList();
+            List<Product> model = productRepo.Products.ToList();
             return View(model);
         }
 
@@ -29,43 +42,39 @@ namespace GummiBear.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            db.Products.Add(product);
-            db.SaveChanges();
+            productRepo.Create(product);
             return RedirectToAction("Index");
         }
 
         public IActionResult Details(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.ProductId == id);
+            var thisProduct = productRepo.Products.FirstOrDefault(Products => Products.ProductId == id);
             return View(thisProduct);
         }
 
         public IActionResult Edit(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.ProductId == id);
+            var thisProduct = productRepo.Products.FirstOrDefault(Products => Products.ProductId == id);
             return View(thisProduct);
         }
 
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            db.Entry(product).State = EntityState.Modified;
-            db.SaveChanges();
+            productRepo.Edit(product);
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.ProductId == id);
+            var thisProduct = productRepo.Products.FirstOrDefault(Products => Products.ProductId == id);
             return View(thisProduct);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.ProductId == id);
-            db.Products.Remove(thisProduct);
-            db.SaveChanges();
+            productRepo.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -77,7 +86,7 @@ namespace GummiBear.Controllers
         [HttpPost, ActionName("DeleteAll")]
         public IActionResult DeleteAllProducts()
         {
-            db.Database.ExecuteSqlCommand("DELETE FROM Products;");
+            productRepo.DeleteAll();
             return RedirectToAction("Index");
         }
 
