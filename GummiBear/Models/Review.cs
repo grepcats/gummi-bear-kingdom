@@ -25,7 +25,7 @@ namespace GummiBear.Models
             else
             {
                 Review newReview = (Review)otherReview;
-                return this.ReviewId.Equals(newReview.ProductId);
+                return this.ReviewId.Equals(newReview.ReviewId);
             }
         }
 
