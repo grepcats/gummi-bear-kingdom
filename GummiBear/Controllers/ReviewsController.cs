@@ -26,9 +26,11 @@ namespace GummiBear.Controllers
                 this.reviewRepo = repo;
             }
         }
+
         public IActionResult Index()
         {
-            return View();
+            List<Review> model = reviewRepo.Reviews.ToList();
+            return View(model);
         }
     }
 }
