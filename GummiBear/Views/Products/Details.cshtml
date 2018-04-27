@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Product - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var averageRating = Model.AverageRating();
 }
 
 <h2>Product Details</h2>
@@ -14,6 +15,7 @@
 
 <div class="reviews">
     <h2>Reviews For This Product</h2>
+    <h3>Average Rating: @averageRating</h3>
     @foreach (var review in Model.Reviews)
     {
         <div class="review">
