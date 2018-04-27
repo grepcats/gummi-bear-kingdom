@@ -13,6 +13,19 @@ namespace GummiBear.Controllers
 {
     public class ReviewsController : Controller
     {
+        private IReviewRepository reviewRepo;
+
+        public ReviewsController(IReviewRepository repo = null)
+        {
+            if (repo == null)
+            {
+                this.reviewRepo = new EFReviewRepository();
+            }
+            else
+            {
+                this.reviewRepo = repo;
+            }
+        }
         public IActionResult Index()
         {
             return View();
