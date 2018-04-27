@@ -36,5 +36,29 @@ namespace GummiBear.Models
         {
             return this.ReviewId.GetHashCode();
         }
+
+        public bool RatingRange()
+        {
+            if (Rating <= 0 || Rating > 5)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }   
+        }
+
+        public bool BodyLength()
+        {
+            if (ContentBody.Length > 255)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
