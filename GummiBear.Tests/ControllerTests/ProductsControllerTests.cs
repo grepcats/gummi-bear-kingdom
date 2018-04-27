@@ -20,9 +20,9 @@ namespace GummiBear.Tests.ControllerTests
         {
             mock.Setup(m => m.Products).Returns(new Product[]
             {
-                new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming...", (decimal)29.97),
-                new Product("Clean Code by Robert C Martin", "Even bad code can function...", (decimal)34.00),
-                new Product("Cracking the Coding Interview by Gayle McDowell", "Cracking the Coding Interview, 6th Edition is here to help you through this process...", (decimal)37.95)
+                new Product { ProductId = 1, Name = "Code Complete by Steve McConnell", Description = "Widely considered one of the best practical guides to programming...", Cost = (decimal)29.97 },
+                new Product { ProductId = 2, Name = "Clean Code by Robert C Martin", Description = "Even bad code can function...", Cost = (decimal)34.00 },
+                new Product { ProductId = 3, Name = "Cracking the Coding Interview by Gayle McDowell", Description = "Cracking the Coding Interview, 6th Edition is here to help you through this process...", Cost = (decimal)37.95 }
             }.AsQueryable());
         }
 
@@ -52,6 +52,24 @@ namespace GummiBear.Tests.ControllerTests
 
             //assert
             Assert.IsInstanceOfType(result, typeof(List<Product>));
+        }
+
+        [TestMethod]
+        public void Mock_IndexModelContainsProducts_Collection()
+        {
+            //arrange
+            DbSetup();
+            ProductsController controller = new ProductsController(mock.Object);
+            Product testProduct = new Product("Sponge", "Sponges up liquids", (decimal)1.99);
+            testProduct.ProductId = 4;
+
+            //act
+            controller.Create(testProduct);
+            ViewResult indexView = controller.Index() as ViewResult;
+            List<Product> collection = indexView.ViewData.Model as List<Product>;
+
+            //assert
+            CollectionAssert.Contains(collection, testProduct);
         }
     }
 }
