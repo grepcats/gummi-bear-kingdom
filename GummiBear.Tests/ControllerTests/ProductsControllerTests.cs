@@ -102,5 +102,7 @@ namespace GummiBear.Tests.ControllerTests
             Assert.IsInstanceOfType(resultView, typeof(ViewResult));
             Assert.IsInstanceOfType(model, typeof(Product));
         }
+
+        //integration tests for CRUD actions
     }
 }
