@@ -8,6 +8,7 @@ namespace GummiBear.Models.Repositories
     public interface IReviewRepository
     {
         IQueryable<Review> Reviews { get; }
+        IQueryable<Product> Products { get; }
         Review Create(Review review);
         Review Edit(Review review);
         void Delete(int id);

@@ -33,8 +33,10 @@ namespace GummiBear.Controllers
             return View(model);
         }
 
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
+            Product thisProduct = reviewRepo.Products.FirstOrDefault(Products => Products.ProductId == id);
+            ViewBag.Product = thisProduct;
             return View();
         }
 

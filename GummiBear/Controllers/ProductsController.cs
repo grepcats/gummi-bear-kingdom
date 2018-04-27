@@ -90,5 +90,10 @@ namespace GummiBear.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult LeaveReview(int id)
+        {
+            return RedirectToAction("Create", "Reviews", new { Id = id });
+        }
+
     }
 }
