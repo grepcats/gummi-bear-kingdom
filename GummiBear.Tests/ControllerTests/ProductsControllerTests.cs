@@ -60,11 +60,9 @@ namespace GummiBear.Tests.ControllerTests
             //arrange
             DbSetup();
             ProductsController controller = new ProductsController(mock.Object);
-            Product testProduct = new Product("Sponge", "Sponges up liquids", (decimal)1.99);
-            testProduct.ProductId = 4;
+            Product testProduct = new Product { ProductId = 1, Name = "Code Complete by Steve McConnell", Description = "Widely considered one of the best practical guides to programming...", Cost = (decimal)29.97 };
 
             //act
-            controller.Create(testProduct);
             ViewResult indexView = controller.Index() as ViewResult;
             List<Product> collection = indexView.ViewData.Model as List<Product>;
 

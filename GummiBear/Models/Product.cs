@@ -28,6 +28,24 @@ namespace GummiBear.Models
         {
 
         }
+
+        public override bool Equals(object otherProduct)
+        {
+            if (!(otherProduct is Product))
+            {
+                return false;
+            }
+            else
+            {
+                Product newProduct = (Product)otherProduct;
+                return this.ProductId.Equals(newProduct.ProductId);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ProductId.GetHashCode();
+        }
     }
 
    
