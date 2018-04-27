@@ -40,5 +40,22 @@ namespace GummiBear.Tests.ModelTests
             Assert.AreEqual(newReview.ContentBody, "This product is terrible");
             Assert.AreEqual(newReview.Rating, 1);
         }
+
+        [TestMethod]
+        public void RatingRange_ReturnTrueIfRange_True()
+        {
+            //arrange
+            Review newReview1 = new Review { ReviewId = 1, Author = "Bob", ContentBody = "This product is great", Rating = 5 };
+            Review newReview2 = new Review { ReviewId = 3, Author = "Bob", ContentBody = "This product is great", Rating = 100 };
+
+            //act
+            bool result1 = newReview1.RatingRange();
+            bool result2 = newReview2.RatingRange();
+
+            //assert
+            Assert.IsTrue(result1);
+            Assert.IsFalse(result2);
+
+        }
     }
 }
