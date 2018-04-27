@@ -13,7 +13,9 @@ namespace GummiBear.Models
         [Key]
         public int ReviewId { get; set; }
         public string Author { get; set; }
+        [StringLength(255)]
         public string ContentBody { get; set; }
+        [Range(1, 5)]
         public int Rating { get; set; }
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
