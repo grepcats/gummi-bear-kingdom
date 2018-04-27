@@ -11,7 +11,7 @@ namespace GummiBear.Tests
         public void GetProperties_ReturnCorrectDataTypes_All()
         {
             //Arrange
-            Product newProduct = new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming, Steve McConnell’s original CODE COMPLETE has been helping developers write better software for more than a decade. Now this classic book has been fully updated and revised with leading-edge practices—and hundreds of new code samples—illustrating the art and science of software construction. ", (decimal)29.97);
+            Product newProduct = new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming...", (decimal)29.97);
 
             //Act
             string nameResult = newProduct.Name;
@@ -20,6 +20,8 @@ namespace GummiBear.Tests
 
             //Assert
             Assert.AreEqual("Code Complete by Steve McConnell", nameResult);
+            Assert.AreEqual("Widely considered one of the best practical guides to programming...", descriptionResult);
+            Assert.AreEqual((decimal)29.97, costResult);
         }
     }
 }
