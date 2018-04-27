@@ -7,6 +7,7 @@ namespace GummiBear.Models.Repositories
 {
     public interface IProductRepository
     {
+        IQueryable<Review> Reviews { get; }
         IQueryable<Product> Products { get; }
         Product Create(Product product);
         Product Edit(Product product);

@@ -13,6 +13,9 @@ namespace GummiBear.Models.Repositories
         public IQueryable<Product> Products
         {  get { return db.Products; } }
 
+        public IQueryable<Review> Reviews
+        { get { return db.Reviews; } }
+
         public Product Create(Product product)
         {
             db.Products.Add(product);

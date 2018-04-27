@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using GummiBear.Models;
 using GummiBear.Models.Repositories;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace GummiBear.Controllers
 {
@@ -49,6 +48,7 @@ namespace GummiBear.Controllers
         public IActionResult Details(int id)
         {
             var thisProduct = productRepo.Products.FirstOrDefault(Products => Products.ProductId == id);
+            thisProduct.Reviews = productRepo.Reviews.Where(Reviews => Reviews.ProductId == id).ToList();
            
 
             return View(thisProduct);

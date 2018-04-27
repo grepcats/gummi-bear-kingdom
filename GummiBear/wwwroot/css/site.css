@@ -111,6 +111,11 @@ h2 {
     font-weight: bold;
 }
 
+.review {
+    border: 1px solid grey;
+    padding: 20px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

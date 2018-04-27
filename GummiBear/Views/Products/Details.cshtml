@@ -12,11 +12,19 @@
 <p><label>@Html.DisplayNameFor(model => model.Cost)</label> : @Html.DisplayFor(model => model.Cost)</p>
 <a class="action" href=@Url.Action("Edit", "Products", new { id = Model.ProductId })><span class="glyphicon glyphicon-pencil" aria-label="edit product"></span></a>
 
-@foreach(var review in Model.Reviews)
-{
-    <p>review.Author</p>
+<div class="reviews">
+    <h2>Reviews For This Product</h2>
+    @foreach (var review in Model.Reviews)
+    {
+        <div class="review">
+            <p><label>Author's Name: </label> @review.Author</p>
+            <p><label>Review: </label> @review.ContentBody</p>
+            <p><label>Rating: </label> @review.Rating</p>
+        </div>
 
-}
+    }
+</div>
+
 
 <div class="page-nav">
     @Html.ActionLink("Back to Products", "Index")
