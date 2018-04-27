@@ -40,5 +40,16 @@ namespace GummiBear.Tests
             Assert.AreEqual("This is a different description", newProduct.Description);
             Assert.AreEqual((decimal)15.00, newProduct.Cost);
         }
+
+        [TestMethod]
+        public void ConstructNewProduct_ReturnProduct_Stuff()
+        {
+            //Arrange & Act
+            Product newProduct = new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming...", (decimal)29.97);
+
+            //Assert
+            Assert.AreEqual("Code Complete by Steve McConnell", newProduct.Name);
+
+        }
     }
 }
