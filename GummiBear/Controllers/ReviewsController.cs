@@ -43,8 +43,16 @@ namespace GummiBear.Controllers
         [HttpPost]
         public IActionResult Create(Review review)
         {
-            reviewRepo.Create(review);
-            return RedirectToAction("Index");
+            if (review.RatingRange() && review.BodyLength())
+            {
+                reviewRepo.Create(review);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Error");
+            }
+            
         }
 
         public IActionResult Details(int id)
