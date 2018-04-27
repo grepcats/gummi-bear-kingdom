@@ -15,6 +15,7 @@ namespace GummiBear.Models
         public string Author { get; set; }
         public string ContentBody { get; set; }
         public int Rating { get; set; }
+        public int ProductId { get; set; }
 
         public override bool Equals(object otherReview)
         {

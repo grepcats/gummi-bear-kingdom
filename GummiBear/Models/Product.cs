@@ -15,6 +15,7 @@ namespace GummiBear.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Cost { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
 
         public Product(string name, string description, decimal cost)
         {
