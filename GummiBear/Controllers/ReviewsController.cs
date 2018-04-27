@@ -50,5 +50,31 @@ namespace GummiBear.Controllers
             var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
             return View(thisReview);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
+            return View(thisReview);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Review review)
+        {
+            reviewRepo.Edit(review);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
+            return View(thisReview);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            reviewRepo.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
