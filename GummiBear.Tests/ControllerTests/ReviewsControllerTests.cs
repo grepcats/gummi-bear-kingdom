@@ -72,5 +72,22 @@ namespace GummiBear.Tests.ControllerTests
             Assert.IsInstanceOfType(resultView, typeof(RedirectToActionResult));
         }
 
+        [TestMethod]
+        public void Mock_ReviewGetDetails_ReturnsView()
+        {
+            //arrange
+            DbSetup();
+            ReviewsController controller = new ReviewsController(mock.Object);
+            Review testReview = new Review { ReviewId = 1, Author = "Bob", ContentBody = "This product is great", Rating = 5 };
+
+            //act
+            var resultView = controller.Details(testReview.ReviewId) as ViewResult;
+            var model = resultView.ViewData.Model as Review;
+
+            //assert
+            Assert.IsInstanceOfType(resultView, typeof(ViewResult));
+            Assert.IsInstanceOfType(model, typeof(Review));
+        }
+
     }
 }

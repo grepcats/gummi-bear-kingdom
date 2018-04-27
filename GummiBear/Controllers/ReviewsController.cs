@@ -44,5 +44,11 @@ namespace GummiBear.Controllers
             reviewRepo.Create(review);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
+            return View(thisReview);
+        }
     }
 }
