@@ -47,6 +47,11 @@ namespace GummiBear.Models
         {
             return this.ProductId.GetHashCode();
         }
+
+        public int AverageRating()
+        {
+            return 5;
+        }
     }
 
    

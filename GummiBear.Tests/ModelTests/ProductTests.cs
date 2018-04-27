@@ -51,5 +51,21 @@ namespace GummiBear.Tests
             Assert.AreEqual("Code Complete by Steve McConnell", newProduct.Name);
 
         }
+
+        [TestMethod]
+        public void AverageRating_returnAverageRating_int()
+        {
+            //arrange
+            Product newProduct = new Product("Code Complete by Steve McConnell", "Widely considered one of the best practical guides to programming...", (decimal)29.97);
+            Review newReview1 = new Review { ReviewId = 1, Author = "Bob", ContentBody = "This product is great", Rating = 5 };
+            Review newReview2 = new Review { ReviewId = 2, Author = "Frank", ContentBody = "This product is ok", Rating = 3 };
+
+
+            //act
+            int rating = newProduct.AverageRating();
+
+            //assert
+            Assert.AreEqual(rating, 4);
+        }
     }
 }
