@@ -1,8 +1,18 @@
-﻿@{
+﻿@using GummiBear.Models;
+@model Dictionary<Product, int>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 <div class="container">
     <h2>Welcome to Gummi Bear Kingdom!</h2>
+    <h3>Here are our top 3 products:</h3>
+    @foreach (KeyValuePair<Product, int> pair in Model)
+    {
+    <p>@pair.Key.Name: @pair.Value</p>
+
+    }
+
     <p>When things happen - enjoy them. They're little gifts. We don't want to set these clouds on fire. All you have to do is let your imagination go wild. This is probably the greatest thing that's ever happened in my life. Don't forget to tell these special people in your life just how special they are to you.</p>
 
     <p>That's a son of a gun of a cloud. Van Dyke Brown is a very nice brown, it's almost like a chocolate brown. This painting comes right out of your heart. We'll take a little bit of Van Dyke Brown. There's nothing wrong with having a tree as a friend. You can do it.</p>

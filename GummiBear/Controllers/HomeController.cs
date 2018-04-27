@@ -20,7 +20,24 @@ namespace GummiBear.Controllers
                 db.Products.AddRange(dummyData);
                 db.SaveChanges();
             }
-            return View();
+
+            Dictionary<Product, int> averages = new Dictionary<Product, int>();
+            foreach(Product product in db.Products)
+            {
+                product.Reviews = db.Reviews.Where(Reviews => Reviews.ProductId == product.ProductId).ToList();
+                averages.Add(product, product.AverageRating());
+            }
+
+            var averageSort = from pair in averages
+                              orderby pair.Value descending
+                              select pair;
+
+            Dictionary<Product, int> newAverages = new Dictionary<Product, int>();
+            foreach (KeyValuePair<Product, int> pair in averageSort)
+            {
+                newAverages.Add(pair.Key, pair.Value);
+            }
+            return View(newAverages);
         }
 
         public IActionResult Product()
