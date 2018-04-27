@@ -43,12 +43,16 @@ A note about dummy data - this app will generate 3 dummy data objects and add th
 * An admin should be able to edit a blog post
 	* Input: User clicks "edit" on a post
 	* Output: User is taken to a form where they can edit the Title, Author, and TextBody of the post
-
-## Future Features
-* User will be able to post a review for a product
-* User will be able to rate products
-* Landing page will show top 3 products
-
+* User should be able to post a review for a product (author, content_body(<255), rating1-5)
+	* Input: From product page or from top level navigation, user selects to leave a review and enters information into a form
+	* Output: Review is added to product and rating added to total ratings.
+* Program should display the average rating for each product on the product details page (and the list page?)
+	* Input: All ratings for a product
+	* Output: Average rating displayed
+* Program should display top 3 products on the landing page
+	* Input: Average ratings for each product
+	* Output: Top 3 products displayed on landing page
+* Models and controllers should have appropriate tests
 
 ## Technologies Used
 * Bootstrap
