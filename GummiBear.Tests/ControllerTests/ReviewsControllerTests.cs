@@ -56,5 +56,21 @@ namespace GummiBear.Tests.ControllerTests
             CollectionAssert.Contains(collection, testReview);
         }
 
+        [TestMethod]
+        public void Mock_ReviewPostViewResultCreate_ViewResult()
+        {
+            //arrange
+            DbSetup();
+            ReviewsController controller = new ReviewsController(mock.Object);
+            Review testReview = new Review { ReviewId = 1, Author = "Bob", ContentBody = "This product is great", Rating = 5 };
+
+            //act
+            var resultView = controller.Create(testReview);
+
+
+            //assert
+            Assert.IsInstanceOfType(resultView, typeof(RedirectToActionResult));
+        }
+
     }
 }

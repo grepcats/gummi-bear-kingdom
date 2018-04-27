@@ -32,5 +32,17 @@ namespace GummiBear.Controllers
             List<Review> model = reviewRepo.Reviews.ToList();
             return View(model);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Review review)
+        {
+            reviewRepo.Create(review);
+            return RedirectToAction("Index");
+        }
     }
 }
