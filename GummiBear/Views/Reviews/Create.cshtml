@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Review - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int test = ViewBag.Product.ProductId;
 }
 
 <h2>Add a New Review for @ViewBag.Product.Name</h2>
@@ -10,6 +11,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.Hidden("ProductId", test)
     <div class="form-group">
         @Html.LabelFor(model => model.Author)
         @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
