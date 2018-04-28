@@ -28,16 +28,20 @@ namespace GummiBear.Controllers
                 averages.Add(product, product.AverageRating());
             }
 
-            var averageSort = from pair in averages
-                              orderby pair.Value descending
-                              select pair;
+            var averageSort = (
+                from pair in averages
+                orderby pair.Value descending
+                select pair)
+                .Take(3)
+                .ToDictionary(pair => pair.Key, pair => pair.Value);
 
-            Dictionary<Product, int> newAverages = new Dictionary<Product, int>();
-            foreach (KeyValuePair<Product, int> pair in averageSort)
-            {
-                newAverages.Add(pair.Key, pair.Value);
-            }
-            return View(newAverages);
+            //Dictionary<Product, int> newAverages = new Dictionary<Product, int>();
+            //foreach (KeyValuePair<Product, int> pair in averageSort)
+            //{
+            //    newAverages.Add(pair.Key, pair.Value);
+            //}
+            //newAverages.
+            return View(averageSort);
         }
 
         public IActionResult Product()
