@@ -34,6 +34,15 @@ namespace GummiBear.Models
             }
         }
 
+        public Review(string author, string contentBody, int rating)
+        {
+            Author = author;
+            ContentBody = contentBody;
+            Rating = rating;
+        }
+
+        public Review() { }
+
         public override int GetHashCode()
         {
             return this.ReviewId.GetHashCode();

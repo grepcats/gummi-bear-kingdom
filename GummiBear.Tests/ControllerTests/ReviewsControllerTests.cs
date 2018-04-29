@@ -90,5 +90,20 @@ namespace GummiBear.Tests.ControllerTests
             Assert.IsInstanceOfType(model, typeof(Review));
         }
 
+        [TestMethod]
+        public void DB_CreatesNewReviews_Collection()
+        {
+            //arrange
+            ReviewsController controller = new ReviewsController(db);
+            Review testReview = new Review("bob", "this is a great sponge", 5);
+
+            //act
+            controller.Create(testReview);
+            var collection = (controller.Index() as ViewResult).ViewData.Model as List<Review>;
+
+            //assert
+            CollectionAssert.Contains(collection, testReview);
+        }
+
     }
 }
