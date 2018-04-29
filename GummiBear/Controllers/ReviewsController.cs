@@ -29,7 +29,7 @@ namespace GummiBear.Controllers
 
         public IActionResult Index()
         {
-            List<Review> model = reviewRepo.Reviews.ToList();
+            List<Review> model = reviewRepo.Reviews.Include(reviews => reviews.Product).ToList();
             return View(model);
         }
 

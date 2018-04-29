@@ -6,7 +6,7 @@
 
 <h2>Recent Reviews - All Products</h2>
 
-
+<!--need to add product to the review via virtual object-->
 @if (Model.Count() >= 1)
 {
     
@@ -16,6 +16,7 @@
                 <p><label>Author's Name: </label> @review.Author</p>
                 <p><label>Review: </label> @review.ContentBody</p>
                 <p><label>Rating: </label> @review.Rating</p>
+                <p><label>Product: </label> @review.Product.Name</p>
             </div>
 
         }
