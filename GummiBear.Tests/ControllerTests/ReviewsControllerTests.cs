@@ -21,6 +21,7 @@ namespace GummiBear.Tests.ControllerTests
 
         Mock<IReviewRepository> mock = new Mock<IReviewRepository>();
         EFReviewRepository db = new EFReviewRepository(new TestDbContext());
+        EFProductRepository pdb = new EFProductRepository(new TestDbContext());
 
         private void DbSetup()
         {
@@ -100,10 +101,16 @@ namespace GummiBear.Tests.ControllerTests
         {
             //arrange
             ReviewsController controller = new ReviewsController(db);
+            ProductsController otherController = new ProductsController(pdb);
+            Product testProduct = new Product("Sponge", "Sponges up liquids", (decimal)1.99);
             Review testReview = new Review("bob", "this is a great sponge", 5);
-
+            
             //act
+            otherController.Create(testProduct);
+            testReview.ProductId = testProduct.ProductId;
             controller.Create(testReview);
+
+            
             var collection = (controller.Index() as ViewResult).ViewData.Model as List<Review>;
 
             //assert
@@ -115,10 +122,15 @@ namespace GummiBear.Tests.ControllerTests
         {
             //arrange
             ReviewsController controller = new ReviewsController(db);
+            ProductsController otherController = new ProductsController(pdb);
+            Product testProduct = new Product("Sponge", "Sponges up liquids", (decimal)1.99);
             Review testReview1 = new Review("bob", "this is a great sponge", 5);
             Review testReview2 = new Review("frank", "this is a bad sponge", 1);
 
             //act
+            otherController.Create(testProduct);
+            testReview1.ProductId = testProduct.ProductId;
+            testReview2.ProductId = testProduct.ProductId;
             controller.Create(testReview1);
             controller.Create(testReview2);
             var collection = (controller.Index() as ViewResult).ViewData.Model as List<Review>;

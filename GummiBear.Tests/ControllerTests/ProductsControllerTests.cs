@@ -110,7 +110,7 @@ namespace GummiBear.Tests.ControllerTests
         }
 
         [TestMethod]
-        public void DB_CreatesNewEntries_Collection()
+        public void DB_CreatesNewProducts_Collection()
         {
             //arrange
             ProductsController controller = new ProductsController(db);
