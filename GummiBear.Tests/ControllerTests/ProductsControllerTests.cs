@@ -177,5 +177,24 @@ namespace GummiBear.Tests.ControllerTests
             //assert
             CollectionAssert.AreEqual(collection, result);
         }
+
+        [TestMethod]
+        public void DB_DeleteAllProducts_Collection()
+        {
+            //arrange
+            ProductsController controller = new ProductsController(db);
+            Product testProduct1 = new Product("sponge", "Sponges up liquid", (decimal)1.99);
+            Product testProduct2 = new Product("many sponges", "Sponges up liquid", (decimal)5.00);
+            controller.Create(testProduct1);
+            controller.Create(testProduct2);
+
+            //act
+            db.DeleteAll();
+            List<Product> emptyList = new List<Product> { };
+            var collection = (controller.Index() as ViewResult).ViewData.Model as List<Product>;
+
+            //assert
+            CollectionAssert.AreEqual(collection, emptyList);
+        }
     }
 }
