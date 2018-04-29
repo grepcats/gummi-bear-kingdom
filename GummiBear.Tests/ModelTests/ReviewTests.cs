@@ -42,6 +42,17 @@ namespace GummiBear.Tests.ModelTests
         }
 
         [TestMethod]
+        public void Equals_ReturnsTrueIfReviewsAreSame_Review()
+        {
+            //arrange, act
+            Review firstReview = new Review("Bob", "This sponge is great", 5);
+            Review secondReview = new Review("Bob", "This sponge is great", 5);
+
+            //assert
+            Assert.AreEqual(firstReview, secondReview);
+        }
+
+        [TestMethod]
         public void RatingRange_ReturnTrueIfRange_True()
         {
             //arrange
