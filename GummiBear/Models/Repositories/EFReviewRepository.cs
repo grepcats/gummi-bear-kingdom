@@ -46,5 +46,10 @@ namespace GummiBear.Models.Repositories
             db.SaveChanges();
         }
 
+        public void DeleteAll()
+        {
+            db.Database.ExecuteSqlCommand("DELETE FROM Reviews;");
+        }
+
     }
 }

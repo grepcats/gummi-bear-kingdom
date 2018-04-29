@@ -12,5 +12,6 @@ namespace GummiBear.Models.Repositories
         Review Create(Review review);
         Review Edit(Review review);
         void Delete(int id);
+        void DeleteAll();
     }
 }

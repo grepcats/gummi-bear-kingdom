@@ -12,8 +12,13 @@ using System.Linq;
 namespace GummiBear.Tests.ControllerTests
 {
     [TestClass]
-    public class ReviewsControllerTests
+    public class ReviewsControllerTests : IDisposable
     {
+        public void Dispose()
+        {
+            db.DeleteAll();
+        }
+
         Mock<IReviewRepository> mock = new Mock<IReviewRepository>();
         EFReviewRepository db = new EFReviewRepository(new TestDbContext());
 
