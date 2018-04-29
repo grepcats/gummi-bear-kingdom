@@ -123,5 +123,23 @@ namespace GummiBear.Tests.ControllerTests
             //assert
             CollectionAssert.Contains(collection, testProduct);
         }
+
+        [TestMethod]
+        public void DB_IndexListAllProducts_Collection()
+        {
+            //arrange
+            ProductsController controller = new ProductsController(db);
+            Product testProduct1 = new Product("sponge", "Sponges up liquid", (decimal)1.99);
+            Product testProduct2 = new Product("many sponges", "Sponges up liquid", (decimal)5.00);
+
+            //act
+            controller.Create(testProduct1);
+            controller.Create(testProduct2);
+            var collection = (controller.Index() as ViewResult).ViewData.Model as List<Product>;
+            List<Product> result = new List<Product> { testProduct1, testProduct2 };
+
+            //assert
+            CollectionAssert.AreEqual(result, collection);
+        }
     }
 }
