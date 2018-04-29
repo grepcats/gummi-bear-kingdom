@@ -15,6 +15,7 @@ namespace GummiBear.Tests.ControllerTests
     public class ReviewsControllerTests
     {
         Mock<IReviewRepository> mock = new Mock<IReviewRepository>();
+        EFReviewRepository db = new EFReviewRepository(new TestDbContext());
 
         private void DbSetup()
         {
