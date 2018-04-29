@@ -15,6 +15,7 @@ namespace GummiBear.Tests.ControllerTests
     public class ProductsControllerTests
     {
         Mock<IProductRepository> mock = new Mock<IProductRepository>();
+        EFProductRepository db = new EFProductRepository(new TestDbContext());
 
         private void DbSetup()
         {
@@ -103,6 +104,19 @@ namespace GummiBear.Tests.ControllerTests
             Assert.IsInstanceOfType(model, typeof(Product));
         }
 
-        //integration tests for CRUD actions
+        [TestMethod]
+        public void DB_CreatesNewEntries_Collection()
+        {
+            //arrange
+            ProductsController controller = new ProductsController(db);
+            Product testProduct = new Product("sponge", "Sponges up liquid", (decimal)1.99);
+
+            //act
+            controller.Create(testProduct);
+            var collection = (controller.Index() as ViewResult).ViewData.Model as List<Product>;
+
+            //assert
+            CollectionAssert.Contains(collection, testProduct);
+        }
     }
 }
