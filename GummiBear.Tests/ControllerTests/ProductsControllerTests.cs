@@ -141,5 +141,22 @@ namespace GummiBear.Tests.ControllerTests
             //assert
             CollectionAssert.AreEqual(result, collection);
         }
+
+        [TestMethod]
+        public void DB_UpdateProduct_Product()
+        {
+            //arrange
+            ProductsController controller = new ProductsController(db);
+            Product testProduct1 = new Product("sponge", "Sponges up liquid", (decimal)1.99);
+            controller.Create(testProduct1);
+
+            //act
+            testProduct1.Name = "better sponge";
+            var resultProduct = (controller.Details(testProduct1.ProductId) as ViewResult).ViewData.Model as Product;
+            controller.Edit(testProduct1);
+
+            //assert
+            Assert.AreEqual(testProduct1.Name, resultProduct.Name);
+        }
     }
 }
