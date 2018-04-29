@@ -50,7 +50,17 @@ namespace GummiBear.Tests
 
             //Assert
             Assert.AreEqual("Code Complete by Steve McConnell", newProduct.Name);
+        }
 
+        [TestMethod]
+        public void Equals_ReturnsTrueIfProductsAreSame_Product()
+        {
+            //arrange, act
+            Product firstProduct = new Product("Sponge", "Sponges up liquids", (decimal)1.99);
+            Product secondProduct = new Product("Sponge", "Sponges up liquids", (decimal)1.99);
+
+            //assert
+            Assert.AreEqual(firstProduct, secondProduct);
         }
 
         [TestMethod]
