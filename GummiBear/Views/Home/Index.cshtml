@@ -10,7 +10,7 @@
     @foreach (KeyValuePair<Product, int> pair in Model)
     {
         <div class="top-product">
-            <h4>@pair.Key.Name</h4>
+            <h4><a class="action" href=@Url.Action("Details", "Products", new { id = pair.Key.ProductId })>@pair.Key.Name</a></h4>
             <p>@pair.Key.Description</p>
             <p>@String.Format("{0:c}", @pair.Key.Cost)</p>
             <p>Average rating: @pair.Value out of 5</p>
