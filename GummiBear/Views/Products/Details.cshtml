@@ -10,7 +10,7 @@
 <hr/>
 <p><label>Product Name</label> : @Html.DisplayFor(model => model.Name)</p>
 <p><label>@Html.DisplayNameFor(model => model.Description)</label> : @Html.DisplayFor(model => model.Description)</p>
-<p><label>@Html.DisplayNameFor(model => model.Cost)</label> : @Html.DisplayFor(model => model.Cost)</p>
+<p><label>@Html.DisplayNameFor(model => model.Cost)</label> : $@Html.DisplayFor(model => model.Cost)</p>
 <a class="action" href=@Url.Action("Edit", "Products", new { id = Model.ProductId })><span class="glyphicon glyphicon-pencil" aria-label="edit product"></span></a>
 
 <div class="reviews">
