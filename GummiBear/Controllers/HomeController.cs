@@ -34,13 +34,7 @@ namespace GummiBear.Controllers
                 select pair)
                 .Take(3)
                 .ToDictionary(pair => pair.Key, pair => pair.Value);
-
-            //Dictionary<Product, int> newAverages = new Dictionary<Product, int>();
-            //foreach (KeyValuePair<Product, int> pair in averageSort)
-            //{
-            //    newAverages.Add(pair.Key, pair.Value);
-            //}
-            //newAverages.
+            
             return View(averageSort);
         }
 
