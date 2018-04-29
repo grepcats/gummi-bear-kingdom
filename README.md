@@ -1,6 +1,6 @@
 ﻿# Gummi Bear Kingdom
 
-##### A website and blog for the Gummi Bear Kingdom company. 4/20/2018
+##### A website and blog for the Gummi Bear Kingdom company. 4/27/2018
 
 ## By Kayla Ondracek
 
