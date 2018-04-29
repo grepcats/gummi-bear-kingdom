@@ -105,5 +105,24 @@ namespace GummiBear.Tests.ControllerTests
             CollectionAssert.Contains(collection, testReview);
         }
 
+        [TestMethod]
+        public void DB_IndexListsReviews_Collection()
+        {
+            //arrange
+            ReviewsController controller = new ReviewsController(db);
+            Review testReview1 = new Review("bob", "this is a great sponge", 5);
+            Review testReview2 = new Review("frank", "this is a bad sponge", 1);
+
+            //act
+            controller.Create(testReview1);
+            controller.Create(testReview2);
+            var collection = (controller.Index() as ViewResult).ViewData.Model as List<Review>;
+            List<Review> result = new List<Review> { testReview1, testReview2 };
+
+            //assert
+            CollectionAssert.AreEqual(result, collection);
+
+
+        }
     }
 }
