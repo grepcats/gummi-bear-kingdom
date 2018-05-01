@@ -55,8 +55,17 @@ namespace GummiBear.Models
             {
                 start += review.Rating;
             }
-            int average = (int)Math.Round((decimal)start / this.Reviews.Count);
-            return average;
+            if (this.Reviews.Count > 0)
+            {
+                int average = (int)Math.Round((decimal)start / this.Reviews.Count);
+                return average;
+            }
+            else
+            {
+                return 0;
+            }
+            
+            
 
         }
     }
