@@ -26,6 +26,21 @@ namespace GummiBear.Tests
             //assert
             Assert.IsInstanceOfType(indexView, typeof(ViewResult));
         }
+
+        //[TestMethod]
+        //public void HomeController_ReturnCorrectModel_Dictionary()
+        //{
+        //    //arrange
+        //    HomeController controller = new HomeController();
+
+        //    //act
+        //    //Product newProduct = 
+        //    var resultView = controller.Index() as ViewResult;
+        //    var model = resultView.ViewData.Model as Review;
+
+        //    //assert
+        //    Assert.IsInstanceOfType(model, typeof(Dictionary<Product, int>));
+        //}
      
     }
 }
