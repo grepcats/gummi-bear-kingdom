@@ -48,7 +48,7 @@ namespace GummiBear.Tests.ControllerTests
         }
 
         [TestMethod]
-        public void Mock_ReviewIndexModelContainsProducts_Collection()
+        public void Mock_ReviewIndexModelContainsReviews_Collection()
         {
             //arrange
             DbSetup();
@@ -138,6 +138,7 @@ namespace GummiBear.Tests.ControllerTests
 
             //assert
             CollectionAssert.AreEqual(result, collection);
+            Assert.IsInstanceOfType(collection, typeof(List<Review>));
 
 
         }

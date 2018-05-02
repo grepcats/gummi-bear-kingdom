@@ -30,7 +30,6 @@ namespace GummiBear.Controllers
         public IActionResult Index()
         {
             List<Review> model = reviewRepo.Reviews.Include(reviews => reviews.Product).ToList();
-            //List<Review> model = reviewRepo.Reviews.ToList();
             return View(model);
         }
 
@@ -53,15 +52,16 @@ namespace GummiBear.Controllers
             {
                 return View("Error");
             }
-            
         }
 
+        //no views for details
         public IActionResult Details(int id)
         {
             var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
             return View(thisReview);
         }
 
+        //no views for edit
         public IActionResult Edit(int id)
         {
             var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
@@ -75,6 +75,7 @@ namespace GummiBear.Controllers
             return RedirectToAction("Index");
         }
 
+        //no views for delete
         public IActionResult Delete(int id)
         {
             var thisReview = reviewRepo.Reviews.FirstOrDefault(Reviews => Reviews.ReviewId == id);
