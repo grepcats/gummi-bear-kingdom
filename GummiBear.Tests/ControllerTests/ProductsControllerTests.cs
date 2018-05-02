@@ -124,7 +124,23 @@ namespace GummiBear.Tests.ControllerTests
             //assert
             Assert.IsInstanceOfType(resultView, typeof(ViewResult));
             Assert.IsInstanceOfType(model, typeof(Product));
+        }
 
+        [TestMethod]
+        public void Mock_DeleteProduct_ReturnsView()
+        {
+            //arrange
+            Product testProduct = new Product { ProductId = 1, Name = "Sponge", Description = "Sponges up liquids", Cost = (decimal)1.99 };
+            DbSetup();
+            ProductsController controller = new ProductsController(mock.Object);
+
+            //act
+            var resultView = controller.Delete(testProduct.ProductId) as ViewResult;
+            var model = resultView.ViewData.Model as Product;
+
+            //assert
+            Assert.IsInstanceOfType(resultView, typeof(ViewResult));
+            Assert.IsInstanceOfType(model, typeof(Product));
         }
 
         [TestMethod]
