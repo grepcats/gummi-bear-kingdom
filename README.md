@@ -1,15 +1,15 @@
 ﻿# Gummi Bear Kingdom
 
-##### A website and blog for the Gummi Bear Kingdom company. 4/27/2018
+##### A website and blog for the Gummi Bear Kingdom company. 5/1/2018
 
 ## By Kayla Ondracek
 
 # Description
-This website currently allows users to add new products to Gummi Bear Kingdom's inventory. Users may create, edit, and delete products, as well as delete all products. In the future, they will be able to add blog posts as well.
+This website allows users to add new products to Gummi Bear Kingdom's inventory. Users may create, edit, and delete products, as well as delete all products. The user may also add reviews for products from the respective product pages. All reviews may be seen from the Reviews index page, or from the respective product pages.
 
 A note about dummy data - this app will generate 3 dummy Product objects and add them to the database when the user arrives to the home page and has no objects in their database. If the user navigates to the home page after having deleted all their objects, these 3 objects will be added back to the database.
 
-The user may add reviews for products from the respective product pages. All reviews may be seen from the Reviews index page, or from the respective product pages.
+A note on testing - there are currently no tests for blog posts. There are currently tests and model/controller code for some extra Reviews functionality (specifically viewing Details, Editing, and Deleting Reviews) although there are not views for these actions yet.
 
 ## Specs
 * Program should have a landing page from where user can go see products
