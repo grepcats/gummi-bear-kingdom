@@ -144,6 +144,21 @@ namespace GummiBear.Tests.ControllerTests
         }
 
         [TestMethod]
+        public void Mock_DeleteAllProducts_ReturnsView()
+        {
+            //arrange
+            Product testProduct = new Product { ProductId = 1, Name = "Sponge", Description = "Sponges up liquids", Cost = (decimal)1.99 };
+            DbSetup();
+            ProductsController controller = new ProductsController(mock.Object);
+
+            //act
+            var resultView = controller.DeleteAll() as ViewResult;
+
+            //assert
+            Assert.IsInstanceOfType(resultView, typeof(ViewResult));
+        }
+
+        [TestMethod]
         public void DB_CreatesNewProducts_Collection()
         {
             //arrange
