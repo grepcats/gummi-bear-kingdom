@@ -91,7 +91,7 @@ namespace GummiBear.Tests.ControllerTests
             //assert
             Assert.IsInstanceOfType(resultView, typeof(RedirectToActionResult));
         }
-
+       
         [TestMethod]
         public void Mock_GetDetails_ReturnsView()
         {
@@ -107,6 +107,24 @@ namespace GummiBear.Tests.ControllerTests
             //assert
             Assert.IsInstanceOfType(resultView, typeof(ViewResult));
             Assert.IsInstanceOfType(model, typeof(Product));
+        }
+
+        [TestMethod]
+        public void Mock_EditProduct_ReturnsView()
+        {
+            //arrange
+            Product testProduct = new Product { ProductId = 1, Name = "Sponge", Description = "Sponges up liquids", Cost = (decimal)1.99 };
+            DbSetup();
+            ProductsController controller = new ProductsController(mock.Object);
+
+            //act
+            var resultView = controller.Edit(testProduct.ProductId) as ViewResult;
+            var model = resultView.ViewData.Model as Product;
+
+            //assert
+            Assert.IsInstanceOfType(resultView, typeof(ViewResult));
+            Assert.IsInstanceOfType(model, typeof(Product));
+
         }
 
         [TestMethod]
@@ -143,7 +161,7 @@ namespace GummiBear.Tests.ControllerTests
         }
 
         [TestMethod]
-        public void DB_UpdateProduct_ProductName()
+        public void DB_EditProduct_ProductName()
         {
             //arrange
             ProductsController controller = new ProductsController(db);
